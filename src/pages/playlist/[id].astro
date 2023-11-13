@@ -1,13 +1,15 @@
 ---
-import MusicsTable from "@/components/MusicsTable.astro"
-import Layout from "../../layouts/Layout.astro"
-import { CardPlayButton } from "@/components/CardPlayButton"
-import { allPlaylists, songs } from "@/lib/data"
+import PlaylistTable from "@/components/PlaylistTable.astro";
+import Layout from "../../layouts/Layout.astro";
+import { PlayButton } from "@/components/PlayButtonPlaylist";
+import { allPlaylists, songs } from "@/lib/data";
 
-const { id } = Astro.params
+const { id } = Astro.params;
 
-const playlist = allPlaylists.find((playlist) => playlist.id === id)
-const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
+const playlist = allPlaylists.find((playlist) => playlist.id === id);
+const playListSongs = songs.filter(
+  (song) => song.albumId === playlist?.albumId
+);
 ---
 
 <Layout title="Spotify Clone">
@@ -18,12 +20,12 @@ const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
   >
     <!-- <PageHeader /> -->
 
-    <header class="flex flex-row gap-8 px-6 mt-12">
-      <picture class="aspect-square w-52 h-52 flex-none">
+    <header class="flex flex-col md:flex-row gap-8 px-6 mt-12">
+      <picture class="aspect-square w-52 h-52 flex-none bg-zinc-700 rounded-xl">
         <img
           src={playlist?.cover}
           alt={`Cover of ${playlist?.title}`}
-          class="object-cover w-full h-full shadow-lg"
+          class="object-cover w-full h-full shadow-lg rounded-xl"
           transition:name=`playlist ${playlist?.id} image`
         />
       </picture>
@@ -31,20 +33,21 @@ const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
       <div class="flex flex-col justify-between">
         <h2 class="flex flex-1 items-end">Playlist</h2>
         <div>
-          <h1 class="text-5xl font-bold block text-white">
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-bold block text-white"
+          >
             {playlist?.title}
             <span transition:name=`playlist ${playlist?.id} title`></span>
           </h1>
         </div>
 
         <div class="flex-1 flex items-end">
-          <div class="text-sm text-gray-300 font-normal">
+          <div class="text-sm text-gray-300 font-normal flex flex-col gap-2">
             <div transition:name=`playlist ${playlist?.id} artists`>
               <span>{playlist?.artists.join(", ")}</span>
             </div>
-            <p class="mt-1">
-              <span class="text-white">{playListSongs.length} canciones</span>,
-              3 h aproximadamente
+            <p class="text-white">
+              {playListSongs.length} songs
             </p>
           </div>
         </div>
@@ -52,7 +55,7 @@ const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
     </header>
 
     <div class="pl-6 pt-6">
-      <CardPlayButton client:load id={id} size="large" />
+      <PlayButton client:load id={id} size="large" />
     </div>
 
     <div class="relative z-10 px-6 pt-10"></div>
@@ -63,7 +66,7 @@ const playListSongs = songs.filter((song) => song.albumId === playlist?.albumId)
     </div>
 
     <section class="p-6">
-      <MusicsTable songs={playListSongs} />
+      <PlaylistTable songs={playListSongs} playlistId={playlist?.id} />
     </section>
   </div>
 </Layout>

@@ -1,12 +1,15 @@
+import type { Playlist, Song } from "@/lib/data";
 import { Pause, Play } from "./Player";
 import { usePlayerStore } from "@/store/playerStore";
 
-export function CardPlayButton({
+export function PlayButton({
   id,
   size = "small",
+  songId,
 }: Readonly<{
   id: string;
   size?: "small" | "large";
+  songId?: number;
 }>) {
   const { currentMusic, isPlaying, setIsPlaying, setCurrentMusic } =
     usePlayerStore((state) => state);
@@ -22,10 +25,18 @@ export function CardPlayButton({
     fetch(`/api/get-info-playlist.json?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
-        const { songs, playlist } = data;
-
+        const {
+          songs,
+          playlist,
+        }: {
+          songs: Song[];
+          playlist: Playlist;
+        } = data;
         setIsPlaying(true);
-        setCurrentMusic({ songs, playlist, song: songs[0] });
+
+        const songToPlay = songs.find((song) => song.id === songId) || songs[0];
+
+        setCurrentMusic({ songs, playlist, song: songToPlay });
       });
   };
 
