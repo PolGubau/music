@@ -1,7 +1,7 @@
 import type { Playlist, Song } from "@/lib/data";
-import { Pause, Play } from "./Player";
+import { Pause, Play } from "./Icons";
 import { usePlayerStore } from "@/store/playerStore";
-export function PlayButton({
+export function PlayButtonSong({
   id,
   songId,
 }: Readonly<{

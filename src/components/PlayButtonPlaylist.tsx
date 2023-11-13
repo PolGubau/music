@@ -1,20 +1,18 @@
 import type { Playlist, Song } from "@/lib/data";
-import { Pause, Play } from "./Player";
+import { Pause, Play } from "./Icons";
 import { usePlayerStore } from "@/store/playerStore";
 
-export function PlayButton({
+export function PlayButtonPlaylist({
   id,
   size = "small",
-  songId,
 }: Readonly<{
   id: string;
   size?: "small" | "large";
-  songId?: number;
 }>) {
   const { currentMusic, isPlaying, setIsPlaying, setCurrentMusic } =
     usePlayerStore((state) => state);
 
-  const isPlayingPlaylist = isPlaying && currentMusic?.playlist.id === id;
+  const isPlayingPlaylist = isPlaying && currentMusic?.playlist?.id === id;
 
   const handleClick = () => {
     if (isPlayingPlaylist) {
@@ -34,7 +32,9 @@ export function PlayButton({
         } = data;
         setIsPlaying(true);
 
-        const songToPlay = songs.find((song) => song.id === songId) || songs[0];
+        const randomSong = songs[Math.floor(Math.random() * songs.length)];
+
+        const songToPlay = randomSong;
 
         setCurrentMusic({ songs, playlist, song: songToPlay });
       });
@@ -45,8 +45,9 @@ export function PlayButton({
   return (
     <button
       onClick={handleClick}
-      className="card-play-button rounded-full bg-green-500 p-4 hover:scale-105 transition hover:bg-green-400"
+      className="card-play-button rounded-full bg-green-500 p-4 hover:scale-105 transition hover:bg-green-400 flex gap-2 text-black items-center"
     >
+      Play Random song
       {isPlayingPlaylist ? (
         <Pause className={iconClassName} />
       ) : (

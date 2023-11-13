@@ -1,6 +1,6 @@
 ---
 import type { Playlist } from "@/lib/data";
-import { PlayButton } from "./PlayButtonPlaylist";
+import { PlayButtonPlaylist } from "./PlayButtonPlaylist";
 
 interface Props {
   playlist: Playlist;
@@ -22,7 +22,7 @@ const artistsString = artists.join(", ");
     z-10
   `
   >
-    <PlayButton id={id} client:visible />
+    <PlayButtonPlaylist id={id} client:visible />
   </div>
 
   <a

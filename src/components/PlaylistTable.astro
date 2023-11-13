@@ -1,7 +1,7 @@
 ---
 import Time from "@/icons/Time.astro";
 import { type Song } from "@/lib/data";
-import { PlayButton } from "./PlayButtonSong";
+import { PlayButtonSong } from "./PlayButtonSong";
 
 interface Props {
   songs: Song[];
@@ -28,7 +28,7 @@ const { songs, playlistId } = Astro.props;
       songs.map((song: Song, index: number) => (
         <tr class="border-spacing-0 text-gray-300 text-sm font-light hover:bg-white/10 overflow-hidden transition duration-300">
           <td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">
-            <PlayButton client:visible id={playlistId} songId={song.id} />
+            <PlayButtonSong client:visible id={playlistId} songId={song.id} />
           </td>
           <td class="px-4 py-2 w-5">{index + 1}</td>
           <td class="px-4 py-2 flex gap-3">

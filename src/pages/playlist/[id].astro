@@ -1,7 +1,7 @@
 ---
 import PlaylistTable from "@/components/PlaylistTable.astro";
 import Layout from "../../layouts/Layout.astro";
-import { PlayButton } from "@/components/PlayButtonPlaylist";
+import { PlayButtonPlaylist } from "@/components/PlayButtonPlaylist";
 import { allPlaylists, songs } from "@/lib/data";
 
 const { id } = Astro.params;
@@ -55,10 +55,8 @@ const playListSongs = songs.filter(
     </header>
 
     <div class="pl-6 pt-6">
-      <PlayButton client:load id={id} size="large" />
+      <PlayButtonPlaylist client:load id={id} size="large" />
     </div>
-
-    <div class="relative z-10 px-6 pt-10"></div>
 
     <div
       class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 -z-[1]"
