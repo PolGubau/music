@@ -1,54 +1,56 @@
-# Astro Starter Kit: Basics
+# A clone of Spotify built with Astro
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Summary
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+This repo consist in a clone of Spotify using Astro v3, a new front-end site generator that offers incredibly fast performance.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+It's not a fully functional clone, but it has the main features of the original Spotify app.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+Just for educational purposes, don't use it in a business environment.
 
-## 🚀 Project Structure
+## Features
 
-Inside of your Astro project, you'll see the following folders and files:
+- [x] Home page
+- [x] Search page
+- [x] Library page
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- Interface works, has sence and is responsive
+- Links work with the browser history and internal transitions
+- The app is deployed to Vercel
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Tech Stack
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- [Astro](https://astro.build/)
+- [Otros frameworks y bibliotecas relevantes]
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Demo
 
-## 🧞 Commands
+[Live demo](https://music.polgubau.com/)
 
-All commands are run from the root of the project, from a terminal:
+## Getting Started
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+1. Clone the repo using git:  
+   `git clone https://github.com/polgubau/music.git`
 
-## 👀 Want to learn more?
+2. Navega a la carpeta del proyecto:
+   `cd music`
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+3. Instala las dependencias:
+   `pnpm i`
+
+4. Ejecuta el proyecto:
+   `pnpm run dev`
+
+Then open [http://localhost:3000](http://localhost:3000) to see your app.
+
+## Contribuciones
+
+This was a learning project, so I don't expect to continue working on it. But if you want to contribute, feel free to open an issue or a pull request.
+
+## Licencia
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Credits
+
+As a learning project, I followed the tutorial of [Midudev](https://midu.dev)

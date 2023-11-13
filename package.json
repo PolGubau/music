@@ -1,19 +1,28 @@
 {
-  "name": "spotify",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
   "dependencies": {
-    "@astrojs/check": "^0.3.1",
-    "@astrojs/tailwind": "^5.0.2",
-    "astro": "^3.5.3",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2"
-  }
+    "@astrojs/react": "3.0.2",
+    "@astrojs/svelte": "4.0.2",
+    "@astrojs/tailwind": "5.0.0",
+    "@astrojs/vercel": "^5.2.0",
+    "@radix-ui/react-slider": "^1.1.2",
+    "@types/react": "18.0.21",
+    "@types/react-dom": "18.0.6",
+    "astro": "3.2.2",
+    "clsx": "^2.0.0",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "svelte": "4.0.0",
+    "tailwindcss": "3.0.24",
+    "zustand": "^4.4.3"
+  },
+  "name": "pol-music",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "start": "astro dev"
+  },
+  "type": "module",
+  "version": "0.0.1"
 }

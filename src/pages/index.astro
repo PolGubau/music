@@ -1,23 +1,41 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PlayListItemCard from "@/components/PlayListItemCard.astro";
+import { playlists } from "@/lib/data";
+
+const currentTime = new Date();
+const currentHour = currentTime.getHours();
+
+let greeting = "";
+
+if (currentHour < 12) {
+  greeting = "Buenos días";
+} else if (currentHour < 18) {
+  greeting = "Buenas tardes";
+} else {
+  greeting = "Buenas noches";
+}
 ---
 
-<Layout title="Music - Pol Gubau Amores">
-  <!-- the aside slot: -->
-  <aside slot="aside">
-    <h2>Music</h2>
-    <p>
-      Music is a big part of my life. I play the guitar and I sing. I also like
-      to compose and produce my own songs.
-    </p>
-    <p>Here you can find some of my songs:</p>
-  </aside>
+<Layout title="Spotify Clone">
+  <div
+    id="playlist-container"
+    class="relative transition-all duration-1000 bg-green-600"
+  >
+    <!-- <PageHeader /> -->
 
-  <!-- the main slot: -->
-  <div slot="main">main</div>
+    <div class="relative z-10 px-6 pt-10">
+      {greeting}
+      <div class="flex flex-wrap mt-6 gap-4">
+        {playlists.map((playlist) => <PlayListItemCard playlist={playlist} />)}
+      </div>
 
-  <!-- PLAYER -->
-  <div slot="player">PLAYER</div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 -z-[1]"
+      >
+      </div>
+    </div>
 
-  <style></style>
+    <style></style>
+  </div>
 </Layout>
