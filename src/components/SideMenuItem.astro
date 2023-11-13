@@ -1,0 +1,19 @@
+---
+interface Props {
+  href: string;
+  active?: boolean;
+}
+
+const { href, active } = Astro.props;
+---
+
+<li>
+  <a
+    href={href}
+    class={`text-zinc-100 flex flex-row items-center gap-2 p-2 bg-transparent hover:bg-zinc-800 cursor-pointer transition-all rounded-md ${
+      active ? "font-semibold " : "font-normal"
+    }`}
+  >
+    <slot />
+  </a>
+</li>

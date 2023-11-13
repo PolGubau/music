@@ -1,0 +1,32 @@
+---
+import SideMenuItem from "./SideMenuItem.astro";
+import HomeIcon from "./icons/HomeIcon.astro";
+import LibraryIcon from "./icons/LibraryIcon.astro";
+import SearchIcon from "./icons/SearchIcon.astro";
+
+const { pathname } = Astro.url;
+---
+
+<nav class="flex flex-col flex-1 gap-2">
+  <div class="bg-zinc-900 rounded-xl p-2">
+    <ul class="flex flex-col gap-2">
+      <SideMenuItem href="/" active={pathname === "/"}>
+        <HomeIcon class="w-6 h-6" />
+         Home
+      </SideMenuItem>
+
+      <SideMenuItem href="/search" active={pathname === "/search"}>
+        <SearchIcon class="w-6 h-6" />
+         Search
+      </SideMenuItem>
+    </ul>
+  </div>
+  <div class="bg-zinc-900 rounded-xl p-2 flex-1">
+    <ul class="flex flex-col gap-2">
+      <SideMenuItem href="/library" active={pathname === "/library"}>
+        <LibraryIcon class="w-6 h-6" />
+         Your Library
+      </SideMenuItem>
+    </ul>
+  </div>
+</nav>
