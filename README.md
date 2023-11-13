@@ -11,17 +11,17 @@ Just for educational purposes, don't use it in a business environment.
 ## Features
 
 - [x] Home page
-- [x] Search page
 - [x] Library page
-
-- Interface works, has sence and is responsive
-- Links work with the browser history and internal transitions
-- The app is deployed to Vercel
+- [x] Interface works, has sence and is responsive
+- [x] Links work with the browser history and internal transitions
+- [x] The app is deployed to Vercel
 
 ## Tech Stack
 
 - [Astro](https://astro.build/)
-- [Otros frameworks y bibliotecas relevantes]
+- [pnpm](https://pnpm.io/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Vercel](https://vercel.com/)
 
 ## Demo
 
